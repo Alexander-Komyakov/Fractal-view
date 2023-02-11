@@ -199,6 +199,8 @@ if len(sys.argv) > 1:
 else: 
 	billet_fractal(1)
 
+pygame.draw.aalines(main_surface, YELLOW, False, turtle.get_coords(), 4)
+pygame.image.save(main_surface, "fractal.png")
 main_surface_size = (2000, 2000)
 surface_pos = (-main_surface_size[0]/2+WIDTH/2, -main_surface_size[1]/2+HEIGHT/2)
 
