@@ -91,6 +91,80 @@ def billet_fractal(frac: int):
 		for i in range(0, 16):
 			rules.smash_expression()
 		rules.call_rule()
+	elif frac == 10:
+		turtle.set_distance(15)
+		turtle.set_angel(25)
+		rules.add_symbol("X", print)
+		rules.add_symbol("[", turtle.add_stack)
+		rules.add_symbol("]", turtle.pop_stack)
+		rules.add_axioma("X")
+		rules.add_rule("X", "FFF-[[X]+X]+F[+FX]-X")
+		rules.add_rule("F", "FF")
+		for i in range(0, 6):
+			rules.smash_expression()
+		rules.call_rule()
+	elif frac == 11:
+		turtle.set_distance(60)
+		turtle.set_angel(20)
+		for i in range(0, 7):
+			turtle.left()
+		rules.add_symbol("[", turtle.add_stack)
+		rules.add_symbol("]", turtle.pop_stack)
+		rules.add_axioma("F")
+		rules.add_rule("F", "F[+F]F[-F][F]")
+		for i in range(0, 5):
+			rules.smash_expression()
+		rules.call_rule()
+	elif frac == 12:
+		turtle.set_distance(20)
+		turtle.set_angel(22.5)
+		for i in range(0, 4):
+			turtle.left()
+		rules.add_symbol("[", turtle.add_stack)
+		rules.add_symbol("]", turtle.pop_stack)
+		rules.add_axioma("F")
+		rules.add_rule("F", "FF-[-F+F+F]+[+F-F-F]")
+		for i in range(0, 5):
+			rules.smash_expression()
+		rules.call_rule()
+
+	elif frac == 13:
+		turtle.set_distance(20)
+		turtle.set_angel(20)
+		rules.add_symbol("[", turtle.add_stack)
+		rules.add_symbol("]", turtle.pop_stack)
+		rules.add_axioma("F")
+		rules.add_rule("F", "F[+F]F[-F][F]")
+		for i in range(0, 5):
+			rules.smash_expression()
+		rules.call_rule()
+	elif frac == 14:
+		turtle.set_distance(2)
+		turtle.set_angel(25.7)
+		turtle.left()
+		turtle.left()
+		turtle.left()
+		rules.add_symbol("[", turtle.add_stack)
+		rules.add_symbol("]", turtle.pop_stack)
+		rules.add_symbol("X", turtle.direct)
+		rules.add_axioma("X")
+		rules.add_rule("X", "F[-X][+X]FX")
+		rules.add_rule("F", "FF")
+		for i in range(0, 10):
+			rules.smash_expression()
+		rules.call_rule()
+	elif frac == 15:
+		turtle.set_distance(2)
+		turtle.set_angel(22.5)
+		rules.add_symbol("[", turtle.add_stack)
+		rules.add_symbol("]", turtle.pop_stack)
+		rules.add_axioma("[F]+[F]+[F]+[F]+[F]+[F]")
+		rules.add_rule("F", "F[++F][--F]FF[+F][-F]FF")
+		for i in range(0, 4):
+			rules.smash_expression()
+		rules.call_rule()
+		rules.call_rule()
+		rules.call_rule()
 	else:
 		turtle.set_distance(10)
 		turtle.set_angel(45)

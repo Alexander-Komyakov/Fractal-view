@@ -16,6 +16,7 @@ class Turtle:
 		self.coords.append([x, y])
 		self.coords.append([x, y])
 		self.distance = 20
+		self.stack = []
 
 	def set_angel(self, angel):
 		self.angel = angel	
@@ -41,3 +42,10 @@ class Turtle:
 	
 	def get_coords(self):
 		return self.coords
+	
+	def add_stack(self):
+		self.stack.append((self.x, self.y))
+	
+	def pop_stack(self):
+		self.x, self.y = self.stack.pop()
+		self.coords.append([self.x, self.y])
