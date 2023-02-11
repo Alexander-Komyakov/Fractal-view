@@ -11,8 +11,9 @@ class Fractal:
 	#example rule = "F++F++F+F-F--F"
 	def add_rule(self, name_rule: str, rule: str):
 		self.rules[name_rule] = rule
-		if self.expression == "":
-			self.expression = rule
+
+	def add_axioma(self, axioma):
+		self.expression = axioma
 
 	def add_symbol(self, symbol, func):
 		self.symbol[symbol] = func

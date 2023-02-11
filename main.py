@@ -12,64 +12,96 @@ def billet_fractal(frac: int):
 	rules.add_symbol("+", turtle.right)
 	rules.add_symbol("-", turtle.left)
 	if frac == 1:
-		turtle.angel = 60
-		rules.add_symbol("Y", print)
-		rules.add_symbol("X", print)
-		rules.add_rule("X", "YF+XF+Y")
-		rules.add_rule("Y", "XF-YF-X")
-		for i in range(0, 6):
+		turtle.set_angel(60)
+		turtle.set_distance(2)
+		rules.add_axioma("F--F--F--F")
+		rules.add_rule("F", "F+F--F+F")
+		for i in range(0, 7):
 			rules.smash_expression()
 		rules.call_rule()
-		rules.call_rule()
-		rules.call_rule()
-		rules.call_rule()
 	elif frac == 2:
-		turtle.angel = 90
-		rules.add_rule("F", "FF+F-F+F+FF")
-		for i in range(0, 5):
+		turtle.set_angel(90)
+		turtle.set_distance(2)
+		rules.add_axioma("F+F+F+F+F+F+F+F")
+		rules.add_rule("F", "F+F-F-F+F")
+		for i in range(0, 8):
 			rules.smash_expression()
 		rules.call_rule()
 	elif frac == 3:
-		turtle.angel = 90
-		rules.add_symbol("X", print)
-		rules.add_rule("X", "XF-F+F-XF+F+XF-F+F-X")
-		rules.add_rule("F", "F+XF+F+XF")
+		turtle.set_angel(60)
+		turtle.set_distance(100)
+		rules.add_axioma("F")
+		rules.add_rule("F", "F-F-F+F+++F+F+F+F-F-F")
 		for i in range(0, 5):
 			rules.smash_expression()
 		rules.call_rule()
 	elif frac == 4:
-		turtle.angel = 90
-		rules.add_rule("F", "F+F-F-F-F+F+F+F-F")
-		for i in range(0, 5):
+		turtle.set_angel(90)
+		turtle.set_distance(10)
+		rules.add_symbol("X", print)
+		rules.add_symbol("Y", print)
+		rules.add_axioma("FX")
+		rules.add_rule("X", "X-YF-")
+		rules.add_rule("Y", "+FX+Y")
+		for i in range(0, 16):
 			rules.smash_expression()
 		rules.call_rule()
 	elif frac == 5:
-		turtle.angel = 90
-		rules.add_symbol("X", print)
-		rules.add_rule("F", "XF-F+F-XF+F+XF-F+F-X")
-		for i in range(0, 5):
+		turtle.set_distance(2)
+		turtle.set_angel(90)
+		rules.add_axioma("F")
+		rules.add_rule("F", "F+F-F-F+F")
+		for i in range(0, 8):
 			rules.smash_expression()
 		rules.call_rule()
 	elif frac == 6:
-		turtle.angel = 90
+		turtle.set_distance(6)
+		turtle.set_angel(60)
+		rules.add_axioma("FXF--FF-FF")
 		rules.add_symbol("X", print)
-		rules.add_symbol("Y", print)
-		rules.add_rule("X", "XFX-YF-YF+FX+FX-YF-YFFX+YF+FXFXYF-FX+YF+FXFX+YF-FXYF-YF-FX+FX+YFYF-")
-		rules.add_rule("Y", "+FXFX-YF-YF+FX+FXYF+FX-YFYF-FX-YF+FXYFYF-FX-YFFX+FX+YF-YF-FX+FX+YFY")
-		for i in range(0, 3):
+		rules.add_rule("F", "FF")
+		rules.add_rule("X", "--FXF++FXF++FXF--")
+		for i in range(0, 7):
 			rules.smash_expression()
 		rules.call_rule()
 	elif frac == 7:
-		turtle.angel = 90
-		rules.add_symbol("L", print)
-		rules.add_symbol("R", print)
-		rules.add_rule("L", "+RF-LFL-FR+")
-		rules.add_rule("R", "-LF+RFR+FL-")
-		for i in range(0, 9):
+		turtle.set_distance(6)
+		turtle.set_angel(90)
+		rules.add_axioma("F+F+F+F")
+		rules.add_rule("F", "-F+F-F-F+F+FF-F+F+FF+F-F-FF+FF-FF+F+F-FF-F-F+FF-F-F+F+F-F+")
+		for i in range(0, 3):
+			rules.smash_expression()
+		rules.call_rule()
+	elif frac == 8:
+		turtle.set_distance(6)
+		turtle.set_angel(60)
+		rules.add_axioma("FX")
+		rules.add_symbol("X", print)
+		rules.add_symbol("Y", print)
+		rules.add_rule("X", "X+YF++YF-FX--FXFX-YF+")
+		rules.add_rule("Y", "-FX+YFYF++YF+FX--FX-Y")
+		for i in range(0, 6):
+			rules.smash_expression()
+		rules.call_rule()
+	elif frac == 9:
+		turtle.set_distance(10)
+		turtle.set_angel(45)
+		rules.add_axioma("F")
+		rules.add_rule("F", "-F++F-")
+		for i in range(0, 16):
+			rules.smash_expression()
+		rules.call_rule()
+	else:
+		turtle.set_distance(10)
+		turtle.set_angel(45)
+		rules.add_axioma("F")
+		rules.add_rule("F", "-F++F-")
+		for i in range(0, 16):
 			rules.smash_expression()
 		rules.call_rule()
 
 
+	
 pygame.init()
 
 WIDTH = 1920
@@ -92,7 +124,9 @@ if len(sys.argv) > 1:
 	billet_fractal(int(sys.argv[1]))
 else: 
 	billet_fractal(1)
-surface_pos = (-main_surface_size[0]/2, -main_surface_size[1]/2)
+
+main_surface_size = (2000, 2000)
+surface_pos = (-main_surface_size[0]/2+WIDTH/2, -main_surface_size[1]/2+HEIGHT/2)
 
 while True:
 	for event in pygame.event.get():
@@ -127,7 +161,7 @@ while True:
 				rules.call_rule()
 
 	main_surface.fill(BLACK)
-	pygame.draw.lines(main_surface, WHITE, False, turtle.get_coords(), 1)
+	pygame.draw.aalines(main_surface, YELLOW, False, turtle.get_coords(), 4)
 	pygame.display.update()
 	screen.fill(YELLOW)
 	screen.blit(pygame.transform.smoothscale(main_surface, main_surface_size), surface_pos)

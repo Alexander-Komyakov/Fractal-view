@@ -10,21 +10,34 @@ class Turtle:
 		self.x = x
 		self.y = y
 		self.angel = angel
+		self.angel_degree = angel
+		self.angel_radian = angel * (math.pi/180)
 		self.coords = []
 		self.coords.append([x, y])
 		self.coords.append([x, y])
+		self.distance = 20
+
+	def set_angel(self, angel):
+		self.angel = angel	
+		self.angel_degree = angel
+
+	def left(self):
+		self.angel -= self.angel_degree
 	
-	def left(self, degree=-45):
-		self.angel += degree * (math.pi/180)
+	def right(self):
+		self.angel += self.angel_degree
 	
-	def right(self, degree=45):
-		self.angel += degree * (math.pi/180)
-	
-	def direct(self, distance=2):
+	def direct(self, distance=None):
+		if distance != None:
+			self.distance = distance
+		self.angel_radian = self.angel * (math.pi/180)
 		old_x = self.x; old_y = self.y
-		self.x = distance * math.cos(self.angel) + old_x
-		self.y = distance * math.sin(self.angel) + old_y
+		self.x = self.distance * math.cos(self.angel_radian) + old_x
+		self.y = self.distance * math.sin(self.angel_radian) + old_y
 		self.coords.append([self.x, self.y])
+	
+	def set_distance(self, distance: int):
+		self.distance = distance
 	
 	def get_coords(self):
 		return self.coords
