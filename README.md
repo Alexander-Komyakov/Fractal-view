@@ -18,12 +18,12 @@ argv: 1 - 7
 
 #Screenshot
 
-<img src="./images/screenshot.jpg" width="250">
+<img src="./screenshot.jpg" width="250">
 
-<img src="./images/screenshot2.jpg" width="250">
+<img src="./screenshot2.jpg" width="250">
 
 
-<img src="./images/screenshot3.jpg" width="250">
+<img src="./screenshot3.jpg" width="250">
 
 
 # Created by Alexander Komyakov
