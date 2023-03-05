@@ -16,7 +16,7 @@ argv: 1 - 9
 
 #### Left <- A   D -> Right
 
-#Screenshot
+# Screenshot
 
 <img src="./screenshot.jpg" width="250">
 
